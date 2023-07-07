@@ -34,3 +34,41 @@ function fiboEvenSum(n) {
   return res;
 }
 ```
+
+## Problem 3: Largest prime factor
+[Link](https://projecteuler.net/problem=3), [fcc link](https://www.freecodecamp.org/learn/project-euler/project-euler-problems-1-to-100/problem-3-largest-prime-factor)
+```js
+function largestPrimeFactor(number) {
+  let n = number;
+  let ans = 1;
+
+  if(n <= 1) return 1;
+
+  while(n % 2 == 0) { 
+    ans = 2; 
+    n /= 2;
+  }
+
+  while(n % 3 == 0) { 
+    ans = 3;
+    n /= 3 
+  }
+
+  for(let i = 5; i * i <= n; i += 6) {
+    if(n % i == 0) {
+      ans = i;
+      n /= i;
+    }
+    if(n % (i+2) == 0) {
+      ans = i + 2;
+      n /= (i + 2);
+    }
+  }
+
+  // edge cases: 13, 52
+  if(n > 3) ans = n;
+
+  // console.log(ans);
+  return ans;
+}
+```
