@@ -2,6 +2,7 @@
 
 ## Problem 1: Multiples of 3 and 5
 [Link](https://projecteuler.net/problem=1)
+
 [fcc](https://www.freecodecamp.org/learn/project-euler/project-euler-problems-1-to-100/problem-1-multiples-of-3-and-5)
 ```js
 function multiplesOf3and5(number) {
