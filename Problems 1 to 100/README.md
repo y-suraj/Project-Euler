@@ -55,11 +55,11 @@ function largestPrimeFactor(number) {
   }
 
   for(let i = 5; i * i <= n; i += 6) {
-    if(n % i == 0) {
+    while(n % i == 0) {
       ans = i;
       n /= i;
     }
-    if(n % (i+2) == 0) {
+    while(n % (i+2) == 0) {
       ans = i + 2;
       n /= (i + 2);
     }
