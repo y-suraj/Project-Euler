@@ -72,3 +72,41 @@ function largestPrimeFactor(number) {
   return ans;
 }
 ```
+
+## Problem 4: Largest palindrome product
+[Link](https://projecteuler.net/problem=4), [fcc link](https://www.freecodecamp.org/learn/project-euler/project-euler-problems-1-to-100/problem-4-largest-palindrome-product)
+```js
+function largestPalindromeProduct(n) {
+  let max = 9;
+  // To get the maximum n digit number
+  for(let i=1; i<n; i++) {
+    max = max*10 + 9;
+  }
+  // To get the minimum n digit number
+  let min = (max + 1)/10;
+
+  // To store the result
+  let largest = -1;
+
+  // starting loop from max to min
+  for(let i = max; i >= min; i--) {
+    // Another loop
+    for(let j = max; j >= min; j--) {
+      // getting the product
+      let num = i * j;
+
+      //Reversing the number
+      let numReverse = [...String(num)].reverse().join("");
+
+      //Checking for palindromic number
+      if (num == numReverse) {
+        //Check if max and break the loop
+        largest = Math.max(num, largest);
+        break;
+      }
+    }
+  }
+
+  return largest;
+}
+```
